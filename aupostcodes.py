@@ -1,3 +1,5 @@
+__version__ = '0.1.0'
+
 # Australian postcode allocation mapping utility.
 # State-to-postcode mapping based on information from:
 
@@ -85,14 +87,14 @@ STATES_FOR_POSTCODES = {
 
 def state_for_postcode(postcode):
     """Given an Australian postcode, return the state that it belongs in."""
-    
+
     if postcode == '':
         postcode = 0
     try:
         postcode = int(postcode)
     except ValueError:
         raise ValueError('Unable to cast postcode value to int.')
-    
+
     for state, postcodes in STATES_FOR_POSTCODES.items():
         if postcode in postcodes:
             return state
